@@ -1,0 +1,64 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+<style>
+    .empty-cart {
+        text-align: center;
+        width: 100%;
+        font-family: "Calibri", "sans-serif";
+    }
+</style>
+
+
+<br><br><br><br>
+{{#if products}}
+    <div class="rowhey">
+    <div class="huju">
+        <ul class="list-group">
+            {{#each products}}
+                <li class="list-group-item">
+               
+                <strong>{{this.item.title}}</strong>
+                <br>
+                 <div class="badge">Qty: {{this.qty}} | Price: {{this.price}} INR</div>
+                
+                <div class = "btn-group" style="float: right">
+                    <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Action <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <a class="dropdown-item" href="/reduce/{{this.item._id}}">Reduce by 1</a>
+                        <a class="dropdown-item" href="/remove/{{this.item._id}}">Remove all</a>
+                    </ul>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+<br><br>
+<div class="rowhey">
+    <div class="huju">
+        <strong>Total: {{totalPrice}} INR</strong>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="checkoutHolder" style="margin-left: 15px">
+        <a href="/checkout" type="button" class="btn btn-success">Checkout</a>
+    </div>
+</div>
+{{else}}
+<br><br><br><br><br>
+    <div class="empty-cart">
+        <h1>Oops!</h1>
+        <br>
+        <br>
+        <h3>Your cart is empty</h3>
+        <br>
+        <a href="/" style="background-color: #f44336; color: white; border-radius: 5px; padding: 10px; text-decoration: none;">Continue shopping</a>
+    </div>
+</div>
+{{/if}}
+

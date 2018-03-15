@@ -1,0 +1,33 @@
+.thumbnail img {
+  height: 260px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.col-sm-6 {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0.02px;
+  padding: 8px;
+}
+
+.captionText {
+  color: #7f7f7f;
+}
+
+.btn {
+  float: right;
+}
+
+.price {
+  float: left;
+}
+
+@media (min-width: 1200px) {
+  .container{
+      max-width: 970px;
+  }
+}
+

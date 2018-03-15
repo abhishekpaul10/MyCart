@@ -1,0 +1,41 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<style>
+    .row {
+         font-family: "Calibri", "sans-serif";
+    }
+</style>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h1>Profile</h1>
+        <hr>
+        <br>
+        <h2>My Orders</h2>
+        <br>
+         {{#each orders }}
+            <div class="panel style=">
+                <div class="panel-body">
+                    <ul class="list-group">
+                        {{#each this.items }}
+                            <li class="list-group-item">
+                                <strong>{{ this.item.title }}</strong> | Qty: {{ this.qty }}
+                                <button type="button" class="btn btn-primary">
+                                    {{this.price}} INR
+                                </button>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="panel-footer" style="background: #BDBDBD; padding: 3px">
+                    <strong>Total Price: {{ this.cart.totalPrice }} INR</strong>
+                </div>
+                <br>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+<br><br><a href="/" style="background-color: #f44336; color: white; border-radius: 5px; padding: 10px; text-decoration: none; font-family: Calibri;">Continue shopping</a>

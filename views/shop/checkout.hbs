@@ -1,0 +1,60 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+<style>
+    .container {
+        font-family: "Calibri", "sans-serif";
+    }
+</style>
+<div class="container">
+    <h1>Checkout</h1>
+    <hr>
+    <h2>Your total: {{total}} INR</h2>
+    <hr>
+    <div id="charge-error" class="alert alert-danger {{#if noError}}d-none{{/if}}">
+            {{errMsg}}
+    </div>
+    <form action="/checkout" method="post" id="checkout-form">
+
+                
+        <div class="form-group" style="width: 50%">
+            <hr>
+            
+            <div class="form-group">
+                <label for="card-name"></label>
+                <input type="text" id="card-name" class="form-control" placeholder="Card Holder Name" required name = "name">
+            </div>
+
+            <div class="form-group">
+                <label for="address"></label>
+                <input type="text" id="address" class="form-control" placeholder="Address" required name="address">
+            </div>
+            
+            <div class="form-group">
+                <label for="card-number"></label>
+                <input type="text" id="card-number" class="form-control" placeholder="Debit Card Number"required>
+            </div>
+                
+            <div class="form-group">
+                
+                <div class="row" style="margin: 0px; padding: 0.2px;">
+                    <label for="card-expiry-month"></label>
+                    <input type="text" id="card-expiry-month" class="form-control" placeholder="MM" style="width: 35%"required>
+                    &nbsp<label for="card-expiry-year"></label>
+                    <input type="text" id="card-expiry-year" class="form-control" placeholder="YY" style="width: 35%" required>
+                </div>
+                
+            </div>
+                       
+            <div class="form-group">
+                <label for="card-cvc"></label>
+                <input type="text" id="card-cvc" class="form-control" placeholder="CVV" style="width: 35%" required>
+            </div>
+            <button type="submit" class="btn btn-success">Buy now</button>
+    </form>
+</div>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="javascripts/checkout.js"></script>
